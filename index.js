@@ -8,9 +8,8 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const Bitmap = require('./lib/bitmap.js');
 
 // filepath and transforms to perform
-const [file, transform] = process.argv.slice(2, 3);
+const [file, transform] = process.argv.slice(2);
 performTransform(file, transform);
-
 
 /**
  * Performs transforms on file
@@ -32,24 +31,21 @@ function performTransform(file, transform) {
         console.error('Sorry, this file format is not supported.');
         return;
       }
-      console.log(bitmap.buffer.slice(bitmap.pixelArrayOffset));
+
       // file buffer with transform applied
       let transformPerformed = bitmap.transform(transform);
       if (transformPerformed) {
         let updatedFilename = bitmap.filePath.replace(/\.bmp/, `.${transform}.bmp`);
 
-        writeFileAsync(updatedFilename, bitmap.buffer)
+        return writeFileAsync(updatedFilename, bitmap.buffer)
           .then(() => {
-            console.log(`Bitmap Transformed: ${updatedFilename}`);
+            console.log(`Transformed bitmap created in '${updatedFilename}'`);
           })
-          .catch((err) => {
-            console.error(`Failed creating transformed file for ${transform}`);
-            console.error(err);
-          });
+          .catch(() => {});
       }
     })
     .catch((err) => {
-      console.error('Error performing transformations. \n');
+      console.error('Error performing transformation. \n');
       throw err;
     });
 }
