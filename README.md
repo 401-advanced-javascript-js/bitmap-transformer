@@ -5,8 +5,8 @@
 ### Author: Jagdeep Singh
 
 ### Links and Resources
-* [submission PR](http://xyz.com)
-* [travis](http://xyz.com)
+* [submission PR](https://github.com/401-advanced-javascript-js/bitmap-transformer/pull/1)
+* [travis](https://www.travis-ci.com/401-advanced-javascript-js/bitmap-transformer)
 
 ### Modules
 
@@ -41,12 +41,3 @@ Rotates bitmap by 180 degrees
 * How do you run tests?
 
   `npm test`
-
-* What assertions were made?
-* What assertions need to be / should be made?
-    
-    tests for:
-      
-    * bitmap.js
-    * rotate180.js
-    * sunburn.js
