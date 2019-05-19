@@ -1,46 +1,52 @@
-# LAB - 
+# LAB - 05
 
-## Project Name
+## Bitmap Transformer
 
-### Author: Student/Group Name
+### Author: Jagdeep Singh
 
 ### Links and Resources
 * [submission PR](http://xyz.com)
 * [travis](http://xyz.com)
-* [back-end](http://xyz.com) (when applicable)
-* [front-end](http://xyz.com) (when applicable)
-
-#### Documentation
-* [api docs](http://xyz.com) (API servers)
-* [jsdoc](http://xyz.com) (Server assignments)
-* [styleguide](http://xyz.com) (React assignments)
 
 ### Modules
-#### `modulename.js`
+
+#### `bitmap.js`
 ##### Exported Values and Methods
 
-###### `foo(thing) -> string`
+###### `Bitmap(file path) -> new Bitmap instance`
 Usage Notes or examples
 
-###### `bar(array) -> array`
-Usage Notes or examples
+###### `bitmap.parse(buffer) -> no return`
+Parses buffer for .bmp file and sets object properties for each segment of the file
 
-### Setup
-#### `.env` requirements
-* `PORT` - Port Number
-* `MONGODB_URI` - URL to the running mongo instance/db
+###### `bitmap.transform(transform type) -> no return`
+Applies transform to bitmap object
+
+#### `sunburn.js`
+##### Exported Values and Methods
+
+###### `sunburn(bitmap) -> error or undefined`
+Applies sunburn to bitmap
+
+#### `rotate180.js`
+##### Exported Values and Methods
+
+###### `rotate180(bitmap) -> error or undefined`
+Rotates bitmap by 180 degrees
 
 #### Running the app
-* `npm start`
-* Endpoint: `/foo/bar/`
-  * Returns a JSON object with abc in it.
-* Endpoint: `/bing/zing/`
-  * Returns a JSON object with xyz in it.
+* `npm start [filename] [transformation name]`
   
 #### Tests
 * How do you run tests?
+
+  `npm test`
+
 * What assertions were made?
 * What assertions need to be / should be made?
-
-#### UML
-Link to an image of the UML for your application and response to events
+    
+    tests for:
+      
+    * bitmap.js
+    * rotate180.js
+    * sunburn.js
