@@ -24,6 +24,7 @@ function performTransform(file, transform) {
   }
   readFileAsync(file)
     .then((buffer) => {
+
       let bitmap = new Bitmap(file);
       bitmap.parse(buffer);
 
