@@ -10,7 +10,8 @@
     "start": "node index.js",
     "lint": "eslint **/*.js",
     "test": "jest --coverage --verbose",
-    "test-watch": "jest --watchAll --coverage --verbose"
+    "test-watch": "jest --watchAll --coverage --verbose",
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
   },
   "keywords": [],
   "author": "Jagdeep Singh",

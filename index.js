@@ -18,14 +18,15 @@ performTransform(file, transform);
  * @param  {...string} transforms transformations to perform
  */
 function performTransform(file, transform) {
+  let bitmap = new Bitmap(file);
   if (!file || !transform) {
-    console.error('Error, missing required arguments. Please provide a BMP file and transform to apply.');
+    console.error('Error, missing required arguments. Please provide a .bmp file and transform to apply.');
+    console.log(`Available transforms include: \n - ${Object.keys(bitmap.transforms).join('\n - ')}`);
     return;
   }
   readFileAsync(file)
     .then((buffer) => {
 
-      let bitmap = new Bitmap(file);
       bitmap.parse(buffer);
 
       if (bitmap.type !== 'BM') {
